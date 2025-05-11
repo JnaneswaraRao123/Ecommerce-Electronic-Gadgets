@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop | MyShop</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+ <header>
+  <nav class="navbar">
+    <h1 class="logo">MyShop</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <!-- Main Content -->
+  <main>
+    <section class="product-list" id="product-list">
+      <!-- Products will be inserted here -->
+    </section>
+  </main>
+
+  
+
+  <script>
+  // Hardcoded product data (no fetch needed)
+  const products = [
+  {
+    name: "Wireless Headphones",
+    description: "High-quality sound with noise cancellation.",
+    price: "₹2999",
+    image: "assets/product1.jpg"
+  },
+  {
+    name: "Smart Watch",
+    description: "Track your fitness and health.          ",
+    price: "₹4999",
+    image: "assets/product2.jpg"
+  },
+  {
+    name: "Bluetooth Speaker",
+    description: "Portable and powerful sound system.",
+    price: "₹1999",
+    image: "assets/product3.jpg"
+  },
+  {
+    name: "Laptop Stand",
+    description: "Ergonomic and foldable design.",
+    price: "₹799",
+    image: "assets/product4.jpg"
+  },
+  {
+    name: "Gaming Mouse",
+    description: "Precision and speed for gamers.",
+    price: "₹1499",
+    image: "assets/product5.jpg"
+  },
+  {
+    name: "Mechanical Keyboard",
+    description: "Tactile keys with RGB lighting.",
+    price: "₹3499",
+    image: "assets/product6.jpg"
+  },
+  {
+    name: "Fitness Band",
+    description: "Track steps, sleep and more.",
+    price: "₹2499",
+    image: "assets/product7.jpg"
+  },
+  {
+    name: "Phone Tripod",
+    description: "Flexible legs and mount for photos.",
+    price: "₹499",
+    image: "assets/product8.jpg"
+  },
+  {
+    name: "Power Bank",
+    description: "10000mAh portable charger.",
+    price: "₹1199",
+    image: "assets/product9.jpg"
+  },
+  {
+    name: "USB Hub",
+    description: "4-port high-speed USB extension.",
+    price: "₹599",
+    image: "assets/product10.jpg"
+  },
+  {
+    name: "Webcam",
+    description: "HD 1080p video for meetings.",
+    price: "₹1999",
+    image: "assets/product11.jpg"
+  },
+  {
+    name: "Portable SSD",
+    description: "Fast data transfer, compact design.",
+    price: "₹6499",
+    image: "assets/product12.jpg"
+  },
+  {
+    name: "Noise Cancelling Earbuds",
+    description: "In-ear with ANC technology.",
+    price: "₹2999",
+    image: "assets/product13.jpg"
+  },
+  {
+    name: "Wireless Charger",
+    description: "Fast wireless charging pad.",
+    price: "₹1099",
+    image: "assets/product14.jpg"
+  },
+  {
+    name: "Smart Light Bulb",
+    description: "Control lighting via app or voice.",
+    price: "₹899",
+    image: "assets/product15.jpg"
+  }
+];
+
+
+  const container = document.querySelector(".product-list");
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${product.name} added to cart!`);
+}
+
+if (container) {
+  products.forEach(product => {
+    const card = document.createElement("div");
+    card.classList.add("product-card");
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p class="desc">${product.description}</p>
+      <p><strong>${product.price}</strong></p>
+      <button class="btn add-to-cart">Add to Cart</button>
+    `;
+    
+    const button = card.querySelector(".add-to-cart");
+    button.addEventListener("click", () => addToCart(product));
+
+    container.appendChild(card);
+  });
+} else {
+  console.error("Product container not found");
+}
+</script>
+
+</body>
+</html>

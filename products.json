@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Sneakers",
+    "price": 29.99,
+    "image": "assets/banana.jpg",
+    "description": "Comfortable and stylish sneakers perfect for daily wear."
+  },
+  {
+    "id": 2,
+    "name": "Smartwatch Pro",
+    "price": 89.99,
+    "image": "assets/cherry.jpg",
+    "description": "Track your fitness and stay connected on the go."
+  },
+  {
+    "id": 3,
+    "name": "Noise Cancelling Headphones",
+    "price": 149.99,
+    "image": "assets/strawberry.jpg",
+    "description": "Enjoy immersive sound with active noise cancellation."
+  }
+]
